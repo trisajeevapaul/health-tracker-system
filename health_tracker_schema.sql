@@ -1,4 +1,4 @@
-create database health_tracker_system;
+-- create database health_tracker_system;
 use health_tracker_system;
 
 -- creating table users
@@ -47,6 +47,7 @@ create table health_tracker_system.mood_score
 (id int unique ,
 score float primary key,
 level varchar(45) not null);
+
 insert into health_tracker_system.mood_score(id,score,level) values
 (	1	,	1	,	"Typical_😊"	)	,
 (	2	,	2	,	"Standard_🙂"	)	,
@@ -59,10 +60,10 @@ insert into health_tracker_system.mood_score(id,score,level) values
 (	9	,	9	,	"Poor_😞"	)	,
 (	10	,	10	,	"Weak_😓"	)	;
 
-select * from mood_score;	
+-- select * from mood_score;	
 
 -- creating the table  mood_logs
-drop table user_mood_logs;
+-- drop table user_mood_logs;
 create table user_mood_logs(id int primary key,
 user_id int,
 user_score float not null,
@@ -108,7 +109,7 @@ insert into user_mood_logs(id,user_id,user_score,additional_comments,log_date,wo
 (	29	,29,4	,	"Feeling_grateful_for_myfamily"	,"2024-08-23",null),
 (	30	,30,8	,	"Feeling_motivated_after_reading _a_book"	,	"2025-01-20","2025-01-20"	);
 
-select * from user_mood_logs;
+-- select * from user_mood_logs;
 
 -- alter table user_mood_logs add column workout_date date;
 
@@ -121,6 +122,7 @@ constraint activity_user_fk foreign key activity(user_id) references users(user_
 mood_score float,
 constraint activity_mood_score_fk foreign key activity(mood_score) references mood_score(score) on delete cascade,
 activity_type varchar(100));
+
 insert into activity(id,user_id,mood_score,activity_type)values
 (	1,1,	1	,	"hold_something_soft_like_pilllow"	)	,
 (	2,2,	2	,	"streching"	)	,
@@ -133,9 +135,9 @@ insert into activity(id,user_id,mood_score,activity_type)values
 (	9,9,	9	,	"cardio"	)	,
 (	10,10,	10	,	"jogging"	)	;
 
-ALTER TABLE activity DROP COLUMN user_id;
+-- ALTER TABLE activity DROP COLUMN user_id;
 
-select * from user_mood_logs;
+-- select * from user_mood_logs;
 
 -- creating a table for heart rate tracking
 CREATE TABLE Heartrate_Tracker (
@@ -149,6 +151,7 @@ CREATE TABLE Heartrate_Tracker (
     constraint  userid_fk foreign key (user_id) references users(user_id)
     on delete cascade
 );
+
 INSERT INTO Heartrate_Tracker (user_id, user_Score, BloodPressure, HeartRate) VALUES 
 (1, 10, '120/80', 72),
 (2, 8, '118/78', 75),
