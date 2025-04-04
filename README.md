@@ -76,6 +76,3 @@ CALL Add_mood_score(2.5);
 CALL users_with_same_mood(5);
 ```
 
-## **📝 License**
-
-This project is open-source under the **MIT License**.
